@@ -24,7 +24,6 @@ refs.downBtn.addEventListener('click',  () => {
 });
 
 document.addEventListener('keydown', changeSlideByButton);
-document.addEventListener('keydown', changeSlideByButton);
 
 
 function changeSlide(direction) {
@@ -46,15 +45,9 @@ function changeSlide(direction) {
 
 function changeSlideByButton (evt) {
     if (evt.key === 'ArrowUp') {
-        activeSlideIndex++;
-        if(activeSlideIndex === slidesNumber) {
-            activeSlideIndex = 0;
-        };
+        changeSlide('up');
     } else if (evt.key === 'ArrowDown') {
-        activeSlideIndex--;
-        if (activeSlideIndex < 0) {
-            activeSlideIndex = slidesNumber - 1;
-        };
+        changeSlide('down');
     };
 
     refs.mainSlide.style.transform = `translateY(-${activeSlideIndex * height}px)`;
