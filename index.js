@@ -23,8 +23,8 @@ refs.downBtn.addEventListener('click',  () => {
     changeSlide('down')
 });
 
-window.addEventListener('keydown', changeSlideByButton);
-window.addEventListener('keydown', changeSlideByButton);
+document.addEventListener('keydown', changeSlideByButton);
+document.addEventListener('keydown', changeSlideByButton);
 
 
 function changeSlide(direction) {
