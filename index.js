@@ -49,7 +49,4 @@ function changeSlideByButton (evt) {
     } else if (evt.key === 'ArrowDown') {
         changeSlide('down');
     };
-
-    refs.mainSlide.style.transform = `translateY(-${activeSlideIndex * height}px)`;
-    refs.sideBar.style.transform = `translateY(${activeSlideIndex * height}px)`
-  };
+};
