@@ -16,28 +16,26 @@ let activeSlideIndex = 0;
 
 refs.sideBar.style.top = `-${(slidesNumber-1) * 100}vh`;
 
-refs.upBtn.addEventListener('click', () => {
-    changeSlide('up')
-});
-refs.downBtn.addEventListener('click',  () => {
-    changeSlide('down')
-});
-
+refs.upBtn.addEventListener('click', changeSlideUp);
+refs.downBtn.addEventListener('click', changeSlideDown);
 document.addEventListener('keydown', changeSlideByButton);
 
 
-function changeSlide(direction) {
-    if (direction === 'up') {
-        activeSlideIndex++;
+function changeSlideUp() {
+    activeSlideIndex++;
         if(activeSlideIndex === slidesNumber) {
-            activeSlideIndex = 0;
+            activeSlideIndex = 0; 
         };
-    } else if (direction === 'down') {
-        activeSlideIndex--;
+
+    refs.mainSlide.style.transform = `translateY(-${activeSlideIndex * height}px)`;
+    refs.sideBar.style.transform = `translateY(${activeSlideIndex * height}px)`
+};
+
+function changeSlideDown() {
+    activeSlideIndex--;
         if (activeSlideIndex < 0) {
             activeSlideIndex = slidesNumber - 1;
         };
-    };
 
     refs.mainSlide.style.transform = `translateY(-${activeSlideIndex * height}px)`;
     refs.sideBar.style.transform = `translateY(${activeSlideIndex * height}px)`
@@ -45,8 +43,8 @@ function changeSlide(direction) {
 
 function changeSlideByButton (evt) {
     if (evt.key === 'ArrowUp') {
-        changeSlide('up');
+        changeSlideUp();
     } else if (evt.key === 'ArrowDown') {
-        changeSlide('down');
+        changeSlideDown();
     };
 };
