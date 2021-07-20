@@ -11,6 +11,8 @@ const refs = {
 };
 
 const slidesNumber = refs.slides.length;
+   
+const height = refs.body.clientHeight;
 
 let activeSlideIndex = 0;
 
@@ -22,8 +24,6 @@ document.addEventListener('keydown', changeSlideByButton);
 
 
 function changeSlideUp() {
-    
-const height = refs.body.clientHeight;
     activeSlideIndex++;
         if(activeSlideIndex === slidesNumber) {
             activeSlideIndex = 0; 
@@ -34,8 +34,6 @@ const height = refs.body.clientHeight;
 };
 
 function changeSlideDown() {
-    
-const height = refs.body.clientHeight;
     activeSlideIndex--;
         if (activeSlideIndex < 0) {
             activeSlideIndex = slidesNumber - 1;
