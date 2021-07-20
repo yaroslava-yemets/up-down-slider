@@ -7,10 +7,10 @@ const refs = {
     mainSlide: document.querySelector('.main-slide'),
     container: document.querySelector('.container'),
     slides: document.querySelectorAll('.main-slide div'),
+    body: document.querySelector('body'),
 };
 
 const slidesNumber = refs.slides.length;
-const height = refs.container.clientHeight;
 
 let activeSlideIndex = 0;
 
@@ -22,6 +22,8 @@ document.addEventListener('keydown', changeSlideByButton);
 
 
 function changeSlideUp() {
+    
+const height = refs.body.clientHeight;
     activeSlideIndex++;
         if(activeSlideIndex === slidesNumber) {
             activeSlideIndex = 0; 
@@ -32,6 +34,8 @@ function changeSlideUp() {
 };
 
 function changeSlideDown() {
+    
+const height = refs.body.clientHeight;
     activeSlideIndex--;
         if (activeSlideIndex < 0) {
             activeSlideIndex = slidesNumber - 1;
